@@ -66,25 +66,18 @@ button:hover {
 
 #wrapper {
   width: 100%;
+  /* display: table; */
 }
 
-#content {
-  width: 45%;
-  margin: 1em;
-  float: left;
-}
- 
+
 #staffs {
   border: 1px solid gray;
   padding:0 1em;
   box-shadow: 3px 3px 3px gray;
-
+  
 }
 
-#col {
-  width: 100%;
-  display: table;
-}
+
 
 /* Mobile */
 @media screen and (max-width: 767px) {
@@ -96,4 +89,27 @@ button:hover {
   }
   
 }
+
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+  #content {
+    width: 45%;
+    margin: 1em;
+    float: left;
+    text-align: center;
+  }
+  
+}
+
+/* Desktop */
+@media screen and (min-width: 993px) {
+  #content {
+    width: 30%;
+    margin: 1em;
+    float: left;
+  }
+}
+
+
 
