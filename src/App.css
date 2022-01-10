@@ -72,7 +72,6 @@ button:hover {
   width: 45%;
   margin: 1em;
   float: left;
-  text-align: center;
 }
  
 #staffs {
@@ -80,6 +79,17 @@ button:hover {
   padding:0 1em;
   box-shadow: 3px 3px 3px gray;
 
+}
+
+#col {
+  width: 100%;
+  display: table;
+}
+
+#col button {
+  display: table;
+  float: right;
+  width: 10%;
 }
 
 /* Mobile */
