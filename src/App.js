@@ -3,13 +3,11 @@ import { STAFFS, DEPARTMENTS, ROLE } from "./StaffListComponent/staffs";
 import "./App.css";
 import StaffList from "./StaffListComponent/StaffList";
 import React from "react";
-import Col from "./StaffListComponent/Col";
 
 function App() {
   return (
     <React.Fragment>
       <h1>Ứng dụng quản lý nhân sự v1.0</h1>
-      <Col />
       <div id="wrapper">
         {STAFFS.map((STAFFS) => (
           <StaffList
