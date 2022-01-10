@@ -6,9 +6,10 @@ import React from "react";
 
 function App() {
   return (
-    <div id="wrapper">
+    <React.Fragment>
       <h1>Ứng dụng quản lý nhân sự v1.0</h1>
-      {STAFFS.map((STAFFS) => (
+      <div id="wrapper">
+        {STAFFS.map((STAFFS) => (
           <StaffList
             key={STAFFS.id}
             name={STAFFS.name}
@@ -19,8 +20,9 @@ function App() {
             overTime={STAFFS.overTime}
             role={STAFFS.role}
           />
-      ))}
-    </div>
+        ))}
+      </div>
+    </React.Fragment>
   );
 }
 

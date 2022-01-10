@@ -56,15 +56,21 @@ button {
   font-size: 1em;
 }
 
+#wrapper {
+  width: 100%;
+}
 
 #content {
-  display: table;
   width: 45%;
-  margin: 2em 0;
+  margin: 1em;
+  float: left;
+  text-align: center;
 }
  
 #staffs {
   border: 1px solid gray;
   padding:0 1em;
 }
+
+
 
