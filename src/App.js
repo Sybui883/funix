@@ -9,6 +9,7 @@ function App() {
     <React.Fragment>
       <h1>Ứng dụng quản lý nhân sự v1.0</h1>
       <div id="wrapper">
+        
         {STAFFS.map((STAFFS) => (
           <StaffList
             key={STAFFS.id}
