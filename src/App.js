@@ -4,6 +4,7 @@ import "./App.css";
 import NhanVien from "./StaffListComponent/NhanVien";
 import BangLuong from "./StaffListComponent/BangLuong";
 import PhongBan from "./StaffListComponent/PhongBan";
+import Contact from "./StaffListComponent/Contact";
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
         <Route path="/phong-ban" element={<PhongBan />} />
         <Route path="/bang-luong" element={<BangLuong />} />
       </Routes>
+      <nav>
+        <Contact />
+      </nav>
     </div>
   );
 }
