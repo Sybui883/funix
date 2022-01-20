@@ -5,6 +5,8 @@ import NhanVien from "./StaffListComponent/NhanVien";
 import BangLuong from "./StaffListComponent/BangLuong";
 import PhongBan from "./StaffListComponent/PhongBan";
 import Contact from "./StaffListComponent/Contact";
+import Home from "./StaffListComponent/Home";
+import { STAFFS } from "./StaffListComponent/staffs";
 
 function App() {
   return (
@@ -14,14 +16,17 @@ function App() {
         <Link to="/phong-ban">Phòng Ban</Link>
         <Link to="/bang-luong">Bảng Lương</Link>
       </nav>
+      <header>
+              <Home />
+      </header>
       <Routes>
-        <Route path="/nhan-vien" element={<NhanVien />} />
+        <Route path="/nhan-vien" element={<Home />} />
         <Route path="/phong-ban" element={<PhongBan />} />
         <Route path="/bang-luong" element={<BangLuong />} />
       </Routes>
-      <nav>
+      <footer>
         <Contact />
-      </nav>
+      </footer>
     </div>
   );
 }
