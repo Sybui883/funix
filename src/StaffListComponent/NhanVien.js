@@ -4,10 +4,10 @@ import { Link, Route, Routes } from "react-router-dom";
 import { STAFFS } from "./staffs";
 
 
-function NhanVien() {
+function NhanVien(STAFFS) {
   return (
     <div id="nhanVien">
-        <img src={STAFFS.image} alt={STAFFS.name} />
+        <img src={STAFFS.image} width='10px' alt={STAFFS.name} loading="lazy" />
           {STAFFS.name}
     </div>
   );

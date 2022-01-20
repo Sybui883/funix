@@ -16,9 +16,7 @@ function App() {
         <Link to="/phong-ban">Phòng Ban</Link>
         <Link to="/bang-luong">Bảng Lương</Link>
       </nav>
-      <header>
-              <Home />
-      </header>
+     
       <Routes>
         <Route path="/nhan-vien" element={<Home />} />
         <Route path="/phong-ban" element={<PhongBan />} />
