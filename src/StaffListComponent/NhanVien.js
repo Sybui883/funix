@@ -2,7 +2,7 @@ import React from 'react';
 import { ReactDOM } from 'react-dom';
 import { STAFFS } from 'staffs'
 
-function StaffList() {
+function NhanVien() {
     constructor(props) {
         super(props);
     }
@@ -11,4 +11,4 @@ function StaffList() {
     )
 }
 
-export default StaffList;f
+export default NhanVien;
