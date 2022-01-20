@@ -1,14 +1,5 @@
-import React from 'react';
-import { ReactDOM } from 'react-dom';
-import { STAFFS } from 'staffs'
-
 function NhanVien() {
-    constructor(props) {
-        super(props);
-    }
-    return (
-
-    )
+  return <h1>Nhan Vien</h1>;
 }
 
 export default NhanVien;
