@@ -1,14 +1,14 @@
 import React from "react";
+import dateFormat from "dateformat";
 import { Link, Route, Routes } from "react-router-dom";
 import { STAFFS } from "./staffs";
 
 
 function NhanVien() {
   return (
-    <div id="staffs">
+    <div id="nhanVien">
         <img src={STAFFS.image} alt={STAFFS.name} />
           {STAFFS.name}
-        <p>{STAFFS.name}</p>
     </div>
   );
 }
