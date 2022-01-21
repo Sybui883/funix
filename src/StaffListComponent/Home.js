@@ -5,10 +5,11 @@ function Home() {
    
   return (
     <div id="home">
+      <h1>Nhân Viên</h1>
       {STAFFS.map((STAFFS) => (
         <NhanVien 
             key={STAFFS.id}
-            img={STAFFS.image}
+            image={STAFFS.image}
             name={STAFFS.name}
             doB={STAFFS.doB}
             salaryScale={STAFFS.salaryScale}
