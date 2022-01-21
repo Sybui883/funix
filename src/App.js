@@ -12,13 +12,13 @@ function App() {
   return (
     <div className="App">
       <nav>
-        <Link to="/nhan-vien">Nhân Viên</Link>
+        <Link to="/">Nhân Viên</Link>
         <Link to="/phong-ban">Phòng Ban</Link>
         <Link to="/bang-luong">Bảng Lương</Link>
       </nav>
      
       <Routes>
-        <Route path="/nhan-vien" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/phong-ban" element={<PhongBan />} />
         <Route path="/bang-luong" element={<BangLuong />} />
       </Routes>
