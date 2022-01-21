@@ -2,6 +2,7 @@ import React from "react";
 import dateFormat from "dateformat";
 import { Link, Route, Routes } from "react-router-dom";
 import { STAFFS } from "./staffs";
+import "./ChiTietNV";
 import "./NhanVien.css";
 
 function NhanVien(STAFFS) {

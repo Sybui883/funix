@@ -6,6 +6,7 @@ function Home() {
   return (
     <div id="home">
       <h1>Nhân Viên</h1>
+      <hr/>
       {STAFFS.map((STAFFS) => (
         <NhanVien 
             key={STAFFS.id}
