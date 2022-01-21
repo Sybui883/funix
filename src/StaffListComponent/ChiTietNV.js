@@ -6,13 +6,11 @@ import Home from "./Home";
 function ChiTietNV(STAFFS) {
     return (
         <div id="chitietNV">
-            <img src={this.image} alt={this.name} />
+            <img src={STAFFS.image} alt={STAFFS.name} />
             <h1>Họ và tên: {STAFFS.name}</h1>
         </div>
     )
 }
-<Routes>
-    <Route path={STAFFS.id} element={<ChiTietNV />} />
-</Routes>
+
 
 export default ChiTietNV;

@@ -7,13 +7,11 @@ import ChiTietNV from "./ChiTietNV";
 
 function NhanVien(STAFFS) {
   return (
-    <div id="nhanVien">
-        <Link to="nhan-vien"><img src={STAFFS.image} alt={STAFFS.name} />
-          {STAFFS.name}</Link>
-
-        <Routes>
-          <Route path={STAFFS.id} element={<ChiTietNV />} />
-        </Routes>
+    <div id="nhanVien" className="offset-sm-1">
+      <Link to="/nhan-vien">
+        <img src={STAFFS.image} alt={STAFFS.name} />
+        {STAFFS.name}
+      </Link>
     </div>
   );
 }

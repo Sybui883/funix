@@ -7,6 +7,7 @@ import PhongBan from "./StaffListComponent/PhongBan";
 import Contact from "./StaffListComponent/Contact";
 import Home from "./StaffListComponent/Home";
 import { STAFFS } from "./StaffListComponent/staffs";
+import ChiTietNV from "./StaffListComponent/ChiTietNV";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/phong-ban" element={<PhongBan />} />
         <Route path="/bang-luong" element={<BangLuong />} />
+        <Route path="/nhan-vien" element={<ChiTietNV />} />
       </Routes>
       <footer>
         <Contact />
