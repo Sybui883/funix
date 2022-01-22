@@ -1,14 +1,14 @@
 import { Navbar, NavbarBrand } from "reactstrap";
+import { Routes, Route, Link } from "react-router-dom";
 
 function Header() {
   return (
     <div>
       <Navbar>
-        <div className="container">
-          <NavbarBrand href="/">Ristorante Con Fusion</NavbarBrand>
-        </div>
+        <Link to="/">Nhân Viên</Link>
+        <Link to="/phong-ban">Phòng Ban</Link>
+        <Link to="/bang-luong">Bảng Lương</Link>
       </Navbar>
-     
     </div>
   );
 }
