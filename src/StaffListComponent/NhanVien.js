@@ -5,14 +5,19 @@ import { STAFFS } from "./staffs";
 import "./NhanVien.css";
 import ChiTietNV from "./ChiTietNV";
 
-function NhanVien(STAFFS) {
+function NhanVien() {
   return (
-    <div id="nhanVien" className="offset-sm-1">
-      <Link to="/nhan-vien">
+    <React.Fragment>
+    {STAFFS.map((STAFFS) => (
+    <div key={STAFFS.id} id="nhanVien" className="offset-sm-1">
+      <Link to={`/nhan-vien/${STAFFS.name}`}>
         <img src={STAFFS.image} alt={STAFFS.name} />
         {STAFFS.name}
       </Link>
     </div>
+    ))}
+    
+    </React.Fragment>
   );
 }
 
