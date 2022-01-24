@@ -4,11 +4,12 @@ import "./App.css";
 import NhanVien from "./StaffListComponent/NhanVien";
 import BangLuong from "./StaffListComponent/BangLuong";
 import PhongBan from "./StaffListComponent/PhongBan";
-import Contact from "./StaffListComponent/Contact";
+import Contact from "./StaffListComponent/Footer";
 import Home from "./StaffListComponent/Home";
 import { STAFFS } from "./StaffListComponent/staffs";
 import ChiTietNV from "./StaffListComponent/ChiTietNV";
 import Header from "./StaffListComponent/Header";
+import Footer from "./StaffListComponent/Footer";
 
 function App(STAFFS) {
   return (
@@ -24,7 +25,7 @@ function App(STAFFS) {
         <Route path={`/nhan-vien/${STAFFS.id}`} element={<ChiTietNV />} />
       </Routes>
       <footer>
-        <Contact />
+        <Footer />
       </footer>
     </div>
   );
