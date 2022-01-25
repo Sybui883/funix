@@ -7,6 +7,8 @@ import ChiTietNV from "./ChiTietNV";
 function NhanVien() {
   return (
     <React.Fragment>
+      <h1>Nhân viên</h1>
+      <hr/>
       {STAFFS.map((STAFFS) => (
         <div key={STAFFS.id} id="nhanVien" className="offset-sm-1">
           <Link to={`/nhan-vien/${STAFFS.id}`}>

@@ -17,7 +17,6 @@ function App(STAFFS) {
       <nav>
         <Header />
       </nav>
-      <hr />
       <Routes>
         <Route path="/" element={<NhanVien />} />
         <Route path="/phong-ban" element={<PhongBan />} />
