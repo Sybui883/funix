@@ -1,9 +1,14 @@
+#home {
+    padding: 1em;
+}
+
 #nhanVien {
     border: 1px solid grey;
     width: 150px;
     height: auto;
     margin: 1em;
     display: inline-table;
+    text-align: center;
 }
 
 #nhanVien:hover {

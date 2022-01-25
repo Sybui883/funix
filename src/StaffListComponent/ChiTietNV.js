@@ -1,11 +1,11 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import dateFormat from "dateFomat";
+import dateFormat from "dateformat";
 import { STAFFS } from "./staffs";
 
 function ChiTietNV() {
   return (
-    <div key={STAFFS.id} id="chitietNV">
+    <div id="chitietNV">
       <img src={STAFFS.image} alt={STAFFS.name} />
       <h1>Họ và tên: {STAFFS.name}</h1>
       <p>Ngày sinh: {dateFormat(STAFFS.doB, "dd/mm/yyyy")}</p>
