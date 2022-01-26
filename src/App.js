@@ -1,29 +1,30 @@
 import { Route, Routes, Switch } from "react-router-dom";
-import logo from "./logo.svg";
 import "./StaffListComponent/css/App.css";
 import NhanVien from "./StaffListComponent/NhanVien";
 import BangLuong from "./StaffListComponent/BangLuong";
 import PhongBan from "./StaffListComponent/PhongBan";
-import Contact from "./StaffListComponent/Footer";
 import Home from "./StaffListComponent/Home";
-import { STAFFS } from "./StaffListComponent/staffs";
 import ChiTietNV from "./StaffListComponent/ChiTietNV";
 import Header from "./StaffListComponent/Header";
 import Footer from "./StaffListComponent/Footer";
+import NotFound from "./NotFound";
 
-function App(STAFFS) {
-  
+function App() {
   return (
     <div className="App">
       <nav>
         <Header />
       </nav>
       <Routes>
-        <Route path="/" element={<NhanVien />} />
-        <Route path="/phong-ban" element={<PhongBan />} />
-        <Route path="/bang-luong" element={<BangLuong />} />
-        <Route path={`/nhan-vien/${STAFFS.id}`} element={<ChiTietNV />} />
-      </Routes>
+          <Route path="/" element={<NhanVien />}>
+            <Route path="/nhan-vien/:staffId" element={<ChiTietNV />} />
+          </Route>
+          <Route path="phong-ban" element={<PhongBan />} />
+          <Route path="bang-luong" element={<BangLuong />} />
+        {/* Notfound */}
+        <Route path="*" element={<NotFound />} />
+        <Route path="/nhan-vien/*" element={<NotFound />} />
+        </Routes>
       <footer>
         <Footer />
       </footer>
