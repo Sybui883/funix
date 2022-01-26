@@ -12,13 +12,7 @@ import Header from "./StaffListComponent/Header";
 import Footer from "./StaffListComponent/Footer";
 
 function App(STAFFS) {
-  const ChiTiet = ((match) => {
-    return (
-      <ChiTietNV 
-        STAFFS={this.state.filter((STAFFS) => STAFFS.id === parseInt(match.params.STAFFS.id, 10))[0]}
-      />
-    )
-  })
+  
   return (
     <div className="App">
       <nav>
@@ -28,7 +22,7 @@ function App(STAFFS) {
         <Route path="/" element={<NhanVien />} />
         <Route path="/phong-ban" element={<PhongBan />} />
         <Route path="/bang-luong" element={<BangLuong />} />
-        <Route path={`/nhan-vien/${STAFFS.id}`} component={ChiTiet} />
+        <Route path={`/nhan-vien/${STAFFS.id}`} element={<ChiTietNV />} />
       </Routes>
       <footer>
         <Footer />

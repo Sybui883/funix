@@ -46,41 +46,37 @@ function Footer(props) {
                 className="btn btn-social-icon btn-google"
                 href="http://google.com/+"
               >
-                <i className="fa fa-google-plus"></i>
+                <i className="fa fa-google-plus">google</i>
               </a>
               <a
                 className="btn btn-social-icon btn-facebook"
                 href="http://www.facebook.com/profile.php?id="
               >
-                <i className="fa fa-facebook"></i>
+                <i className="fa fa-facebook">facebook</i>
               </a>
               <a
                 className="btn btn-social-icon btn-linkedin"
                 href="http://www.linkedin.com/in/"
               >
-                <i className="fa fa-linkedin"></i>
+                <i className="fa fa-linkedin">linkedin</i>
               </a>
               <a
                 className="btn btn-social-icon btn-twitter"
                 href="http://twitter.com/"
               >
-                <i className="fa fa-twitter"></i>
+                <i className="fa fa-twitter">twitter</i>
               </a>
               <a
                 className="btn btn-social-icon btn-google"
                 href="http://youtube.com/"
               >
-                <i className="fa fa-youtube"></i>
-              </a>
-              <a className="btn btn-social-icon" href="mailto:">
-                <i className="fa fa-envelope-o"></i>
+                <i className="fa fa-youtube">youtube</i>
               </a>
             </div>
           </div>
         </div>
         <div className="row justify-content-center">
           <div className="col-auto">
-            <p>© Copyright 2018 Ristorante Con Fusion</p>
           </div>
         </div>
       </div>
