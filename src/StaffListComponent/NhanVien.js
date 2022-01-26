@@ -5,6 +5,7 @@ import "./css/NhanVien.css";
 import ChiTietNV from "./ChiTietNV";
 
 function NhanVien() {
+ 
   return (
     <div id="home">
       <h1>Nhân viên</h1>

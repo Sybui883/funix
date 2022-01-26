@@ -12,7 +12,7 @@ function BangLuong() {
           <p>Mã số nhân viên: {STAFF.id}</p>
           <p>Hệ số lương: {STAFF.salaryScale.toFixed(0)}</p>
           <p>Số giờ làm thêm: {STAFF.overTime}</p>
-          <p id="Luong">Lương: {(STAFF.salaryScale.toFixed(0) * basicSalary) + (STAFF.overTime * overTimeSalary)}</p>
+          <p id="Luong">Lương: {((STAFF.salaryScale.toFixed(0) * basicSalary) + (STAFF.overTime * overTimeSalary)).toLocaleString()} VND</p>
         </div>
       ))}
     </div>
