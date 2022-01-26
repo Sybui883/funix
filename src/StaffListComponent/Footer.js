@@ -1,28 +1,11 @@
 import React from "react";
-import './css/Footer.css';
+import "./css/Footer.css";
 
 function Footer(props) {
   return (
     <div className="footer">
       <div className="container">
         <div className="row justify-content-center">
-          <div className="col-4 offset-1 col-sm-2">
-            <h5>Links</h5>
-            <ul className="list-unstyled">
-              <li>
-                <a href="#">Home</a>
-              </li>
-              <li>
-                <a href="#">About</a>
-              </li>
-              <li>
-                <a href="#">Menu</a>
-              </li>
-              <li>
-                <a href="contactus.html">Contact</a>
-              </li>
-            </ul>
-          </div>
           <div className="col-7 col-sm-5">
             <h5>Our Address</h5>
             <address>
@@ -37,7 +20,7 @@ function Footer(props) {
               <i className="fa fa-fax fa-lg"></i>: +852 8765 4321
               <br />
               <i className="fa fa-envelope fa-lg"></i>:{" "}
-              <a href="mailto:confusion@food.net">confusion@food.net</a>
+              <a href="mailto:confusion@food.net">@funix.edu.vn</a>
             </address>
           </div>
           <div className="col-12 col-sm-4 align-self-center">
@@ -46,7 +29,7 @@ function Footer(props) {
                 className="btn btn-social-icon btn-google"
                 href="http://google.com/+"
               >
-                <i className="fa fa-google-plus">google</i>
+                <i className="fa fa-google-plus">google plus</i>
               </a>
               <a
                 className="btn btn-social-icon btn-facebook"
@@ -76,8 +59,7 @@ function Footer(props) {
           </div>
         </div>
         <div className="row justify-content-center">
-          <div className="col-auto">
-          </div>
+          <div className="col-auto"></div>
         </div>
       </div>
     </div>
