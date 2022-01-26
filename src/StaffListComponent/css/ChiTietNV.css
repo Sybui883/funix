@@ -1,0 +1,19 @@
+#chitietNV {
+    display: flex;
+    margin: 1em;
+}
+
+#img {
+    width: 25%;
+}
+
+img {
+    width: 100%;
+}
+
+#content {
+    width: 60%;
+    padding: 0 1em;
+}
+
+
