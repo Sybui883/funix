@@ -16,9 +16,9 @@ function App() {
         <Header />
       </nav>
       <Routes>
-          <Route path="/" element={<NhanVien />}>
+          <Route path="/" element={<NhanVien />} />
             <Route path="/nhan-vien/:staffId" element={<ChiTietNV />} />
-          </Route>
+         
           <Route path="phong-ban" element={<PhongBan />} />
           <Route path="bang-luong" element={<BangLuong />} />
         {/* Notfound */}
