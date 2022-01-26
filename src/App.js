@@ -1,6 +1,6 @@
 import { Route, Routes, Switch } from "react-router-dom";
 import logo from "./logo.svg";
-import "./App.css";
+import "./StaffListComponent/css/App.css";
 import NhanVien from "./StaffListComponent/NhanVien";
 import BangLuong from "./StaffListComponent/BangLuong";
 import PhongBan from "./StaffListComponent/PhongBan";
