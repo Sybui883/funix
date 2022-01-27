@@ -4,14 +4,16 @@ import './css/phongBan.css';
 
 function PhongBan() {
   return (
-    <React.Fragment>
+    <div>
+      <h1>Phòng Ban</h1>
+      <hr/>
       {DEPARTMENTS.map((department) => (
         <div key={department.id} id="phongBan">
           <h1>{department.name}</h1>
           <p>Số lượng nhân viên: {department.numberOfStaff}</p>
         </div>
       ))}
-    </React.Fragment>
+    </div>
   );
 }
 

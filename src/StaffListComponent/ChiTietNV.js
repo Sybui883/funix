@@ -1,8 +1,8 @@
 import React, { Fragment } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import dateFormat from "dateformat";
 import { STAFFS } from "./staffs";
-import { Breadcrumb } from "reactstrap";
+import { Breadcrumb, BreadcrumbItem } from "reactstrap";
 import "./css/ChiTietNV.css";
 
 function ChiTietNV() {
@@ -10,6 +10,10 @@ function ChiTietNV() {
   const staff = STAFFS.find((staff) => staff.id.toString() === params.staffId);
   return (
     <Fragment>
+      <Breadcrumb>
+        <BreadcrumbItem><Link to='/'>Nhân Viên</Link></BreadcrumbItem>
+        <BreadcrumbItem active>{staff?.name}</BreadcrumbItem>
+      </Breadcrumb>
       <div id="chitietNV">
         <div id="img">
           <img src={staff?.image} alt={staff?.name} />

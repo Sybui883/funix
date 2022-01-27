@@ -6,6 +6,8 @@ function BangLuong() {
 	const overTimeSalary = 200000;
 	return (
 		<div>
+      <h1>Bảng Lương</h1>
+      <hr/>
       {STAFFS.map((STAFF) => (
 		  <div id="BangLuong" key={STAFF.id}>
           <h1>{STAFF.name}</h1>
