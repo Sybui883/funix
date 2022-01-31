@@ -19,7 +19,7 @@ function ChiTietNV() {
           <img src={staff?.image} alt={staff?.name} />
         </div>
         <div id="content">
-          <h1>Họ và tên: {staff?.name}</h1>
+          <h2>Họ và tên: {staff?.name}</h2>
           <p>Ngày sinh: {dateFormat(staff?.doB, "dd/mm/yyyy")}</p>
           <p>Ngày vào công ty: {dateFormat(staff?.startDate, "dd/mm/yyyy")}</p>
           <p>Phòng ban: {staff?.department.name}</p>
