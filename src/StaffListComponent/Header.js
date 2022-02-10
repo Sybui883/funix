@@ -6,13 +6,13 @@ function Header() {
   return (
     <div>
       <nav className="navbar navbar-expand-sm navbar-dark bg-primary">
-        <Link className="navbar-brand" to="/">
+        <Link className="navbar-brand nhanvien" to="/">
           Nhân Viên
         </Link>
-        <Link className="navbar-brand" to="/phong-ban">
+        <Link className="navbar-brand phongban" to="/phong-ban">
           Phòng Ban
         </Link>
-        <Link className="navbar-brand" to="/bang-luong">
+        <Link className="navbar-brand bangluong" to="/bang-luong">
           Bảng Lương
         </Link>
       </nav>

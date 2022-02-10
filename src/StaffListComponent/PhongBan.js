@@ -1,6 +1,6 @@
 import React from "react";
 import { DEPARTMENTS } from "./staffs";
-import './css/phongBan.css';
+import './css/PhongBan.css';
 
 function PhongBan() {
   return (
