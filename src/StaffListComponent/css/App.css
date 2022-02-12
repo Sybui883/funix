@@ -1,3 +1,7 @@
+body {
+  max-width: 998px;
+}
+
 .row-header{
   margin:0px auto;
   padding:0px auto;

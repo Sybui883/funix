@@ -1,20 +1,17 @@
 #nhanVien {
-    border: 1px solid grey;
-    width: 150px;
-    height: auto;
-    margin: 1em;
+    width: 140px;
+    margin: 0.5em;
     display: inline-table;
     text-align: center;
 }
 
 #nhanVien:hover {
-    box-shadow: 0px 0px 10px 5px red;
+    box-shadow: 0px 0px 3px 3px red;
     transition: 0.2s;
 }
 
 .card-text {
     color: black;
-    text-decoration: none;
 }
 
 

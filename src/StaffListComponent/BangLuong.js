@@ -1,3 +1,5 @@
+import { Breadcrumb, BreadcrumbItem } from "reactstrap";
+import { Link } from "react-router-dom";
 import { STAFFS } from "./staffs";
 import "./css/BangLuong.css";
 
@@ -8,6 +10,10 @@ function BangLuong() {
 		<div>
       <h1>Bảng Lương</h1>
       <hr/>
+      <Breadcrumb>
+        <BreadcrumbItem><Link to='/'>Nhân Viên</Link></BreadcrumbItem>
+        <BreadcrumbItem active>Bảng Lương</BreadcrumbItem>
+      </Breadcrumb>
       {STAFFS.map((STAFF) => (
 		  <div id="BangLuong" key={STAFF.id}>
           <h1>{STAFF.name}</h1>
