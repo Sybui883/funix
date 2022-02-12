@@ -4,8 +4,7 @@
 }
 
 #img {
-    width: 28%;
-    border: 1px solid gray;
+    width: 30%;
 }
 
 img {
@@ -15,9 +14,7 @@ img {
 #content {
     width: 60%;
     padding: 0 1em;
-    border: 1px solid gray;
     margin: 0 1em;
-    font-size: 1.2em;
 }
 
 

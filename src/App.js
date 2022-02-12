@@ -21,7 +21,6 @@ function App() {
          
           <Route path="phong-ban" element={<PhongBan />} />
           <Route path="bang-luong" element={<BangLuong />} />
-        {/* Notfound */}
         <Route path="*" element={<NotFound />} />
         <Route path="/nhan-vien/*" element={<NotFound />} />
         </Routes>
