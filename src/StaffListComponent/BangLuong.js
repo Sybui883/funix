@@ -8,8 +8,6 @@ function BangLuong() {
 	const overTimeSalary = 200000;
 	return (
 		<div>
-      <h1>Bảng Lương</h1>
-      <hr/>
       <Breadcrumb>
         <BreadcrumbItem><Link to='/'>Nhân Viên</Link></BreadcrumbItem>
         <BreadcrumbItem active>Bảng Lương</BreadcrumbItem>
