@@ -19,16 +19,16 @@ export default class BangLuong extends Component {
           {STAFFS.map((STAFF) => (
             <div style={{border: '1px solid grey', margin: '10px'}} className="col-3" id="BangLuong" key={STAFF.id}>
               <h1>{STAFF.name}</h1>
-              <p className="px-5">Mã số nhân viên: {STAFF.id}</p>
-              <p className="px-5">Hệ số lương: {STAFF.salaryScale.toFixed(0)}</p>
-              <p className="px-5">Số giờ làm thêm: {STAFF.overTime}</p>
+              <p className="px-3">Mã số nhân viên: {STAFF.id}</p>
+              <p className="px-3">Hệ số lương: {STAFF.salaryScale.toFixed(0)}</p>
+              <p className="px-3">Số giờ làm thêm: {STAFF.overTime}</p>
               <h5
                 style={{
                   border: "1px solid grey",
                   borderTopLeftRadius: "10px",
                   borderBottomRightRadius: "10px",
                   backgroundColor: "lightGray",
-                  padding: '0 10px'
+                  padding: '10px'
                 }}
                 id="Luong"
               >

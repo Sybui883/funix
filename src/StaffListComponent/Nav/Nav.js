@@ -19,13 +19,13 @@ export default class Nav extends Component {
               alt="Ristorante Con Fusion"
             />
           </NavbarBrand>
-        <Link className="navbar-brand nhanvien" to="/"><span className="fa fa-users fa-lg"></span>
-          Nhân Viên
+        <Link className="navbar-brand nhanvien" to="/"><span className="fa fa-users fa-lg mx-1"></span>
+        Nhân Viên
         </Link>
-        <Link className="navbar-brand phongban" to="/phong-ban"><span className="fa fa-address-card fa-lg"></span>
+        <Link className="navbar-brand phongban" to="/phong-ban"><span className="fa fa-address-card fa-lg mx-1"></span>
           Phòng Ban
         </Link>
-        <Link className="navbar-brand bangluong" to="/bang-luong"><span className="fa fa-money-bill fa-lg"></span>
+        <Link className="navbar-brand bangluong" to="/bang-luong"><span className="fa fa-money-bill fa-lg mx-1"></span>
           Bảng Lương
         </Link>
       </nav>
