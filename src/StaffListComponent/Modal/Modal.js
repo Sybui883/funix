@@ -1,19 +1,18 @@
 import React, { Component } from "react";
-import { DEPARTMENTS, STAFFS } from "../staffs";
 
 export default class Modal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: "",
       name: "",
       doB: "",
       salaryScale: "1",
       startDate: "",
-      department: {name: ''},
+      department: { name: "" },
       annualLeave: "0",
       overTime: "0",
       image: "/assets/images/alberto.png",
+      keyWord: "",
     };
   }
 
@@ -32,28 +31,38 @@ export default class Modal extends Component {
   };
 
   render() {
+    var {
+      name,
+      doB,
+      salaryScale,
+      startDate,
+      department,
+      annualLeave,
+      overTime,
+    } = this.state;
     return (
       <div>
-        {/* Button trigger modal */}
-        <button
-          style={{ fontWeight: "bold", marginLeft: "30%" }}
-          className="btn btn-primary"
-          data-toggle="modal"
-          data-target="#modelId"
-        >
-          +
-        </button>
-        {/* Modal */}
-        <div
-          className="modal fade"
-          id="modelId"
-          tabIndex={-1}
-          role="dialog"
-          aria-labelledby="modelTitleId"
-          aria-hidden="true"
-        >
-          <div className="modal-dialog" role="document">
-            <div className="modal-content">
+        <form onSubmit={this.onSubmit}>
+          {/* Button trigger modal */}
+          <button
+            style={{ fontWeight: "bold", marginLeft: "30%" }}
+            className="btn btn-dark"
+            data-toggle="modal"
+            data-target="#modelId"
+          >
+            +
+          </button>
+          {/* Modal */}
+          <div
+            className="modal fade"
+            id="modelId"
+            tabIndex={-1}
+            role="dialog"
+            aria-labelledby="modelTitleId"
+            aria-hidden="true"
+          >
+            <div className="modal-dialog" role="document">
+              <div className="modal-content">
                 <div className="modal-header">
                   <h5 className="modal-title">Thêm Nhân Viên</h5>
                   <button
@@ -66,17 +75,16 @@ export default class Modal extends Component {
                   </button>
                 </div>
                 <div className="modal-body">
-              <form onSubmit={this.onSubmit}>
                   <div className="row my-3">
-                    <label htmlFor="ten" className="col-5">
+                    <label htmlFor="name" className="col-5">
                       Tên
                     </label>
                     <input
-                      id="ten"
+                      id="name"
                       className="col-6"
                       type="text"
                       name="name"
-                      defaultValue={this.state.name}
+                      defaultValue={name}
                       onChange={this.onChange}
                       required
                     ></input>
@@ -90,7 +98,7 @@ export default class Modal extends Component {
                       className="col-6"
                       type="date"
                       name="doB"
-                      defaultValue={this.state.doB}
+                      defaultValue={doB}
                       onChange={this.onChange}
                       required
                     ></input>
@@ -104,7 +112,7 @@ export default class Modal extends Component {
                       className="col-6"
                       type="date"
                       name="startDate"
-                      defaultValue={this.state.startDate}
+                      defaultValue={startDate}
                       onChange={this.onChange}
                       required
                     ></input>
@@ -117,14 +125,14 @@ export default class Modal extends Component {
                       id="department"
                       className="col-6"
                       name="department"
-                      defaultValue={this.state.department.name}
+                      defaultValue={department.name}
                       onChange={this.onChange}
                     >
-                      {DEPARTMENTS.map((department) => {
-                        return (
-                          <option key={department.id}>{department.name}</option>
-                        );
-                      })}
+                      <option>Sale</option>
+                      <option>HR</option>
+                      <option>Marketing</option>
+                      <option>IT</option>
+                      <option>Finance</option>
                     </select>
                   </div>
                   <div className="row my-3">
@@ -136,7 +144,7 @@ export default class Modal extends Component {
                       className="col-6"
                       type="text"
                       name="salaryScale"
-                      defaultValue={this.state.salaryScale}
+                      defaultValue={salaryScale}
                       onChange={this.onChange}
                       required
                     ></input>
@@ -149,7 +157,7 @@ export default class Modal extends Component {
                       id="annualLeave"
                       className="col-6"
                       type="text"
-                      defaultValue={this.state.annualLeave}
+                      defaultValue={annualLeave}
                       onChange={this.onChange}
                       name="annualLeave"
                       style={{ lineHeight: "0" }}
@@ -164,25 +172,22 @@ export default class Modal extends Component {
                       id="overTime"
                       className="col-6"
                       type="text"
-                      defaultValue={this.state.overTime}
+                      defaultValue={overTime}
                       onChange={this.onChange}
                       name="overTime"
                       required
                     ></input>
                   </div>
-                  <button
-                    type="submit"
-                    className="btn btn-primary"
-                    aria-hidden="false"
-
-                  >
-                    Thêm
-                  </button>
-              </form>
+                  <div className="modal-footer">
+                    <button type="submit" className="btn btn-primary">
+                      Thêm
+                    </button>
+                  </div>
                 </div>
+              </div>
             </div>
           </div>
-        </div>
+        </form>
       </div>
     );
   }

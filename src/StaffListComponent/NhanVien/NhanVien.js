@@ -1,14 +1,7 @@
-import React, { Component, Fragment } from "react";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  Card,
-  CardImg,
-  CardTitle,
-} from "reactstrap";
-import dateFormat from "dateformat";
-import { Link, useParams } from "react-router-dom";
-import { STAFFS } from "../staffs";
+import React, { Component } from "react";
+import { Card, CardImg, CardTitle } from "reactstrap";
+import { Link } from "react-router-dom";
+import { DEPARTMENTS, STAFFS } from "../staffs";
 import Modal from "../Modal/Modal";
 import Search from "../Search/Search";
 
@@ -16,21 +9,60 @@ export default class NhanVien extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      STAFFS: [],
+      STAFFS: {},
+      keyWord: "",
+      filter: { name: "" },
     };
   }
 
+  onFilter = (keyWord) => {
+    console.log(keyWord);
+    this.setState({
+      filter: {
+        name: keyWord,
+      },
+    });
+  };
+
   onSubmit = (data) => {
-    var { staffs } = this.state.STAFFS;
+    var {
+      name,
+      doB,
+      salaryScale,
+      startDate,
+      department,
+      annualLeave,
+      overTime,
+    } = this.state;
     data.id = Date.now();
     STAFFS.push(data);
     this.setState({
-      staffs: staffs,
+      name: name,
+      doB: doB,
+      salaryScale: salaryScale,
+      startDate: startDate,
+      department: department,
+      annualLeave: annualLeave,
+      overTime: overTime,
     });
     localStorage.setItem("STAFFS", JSON.stringify(STAFFS));
   };
 
+  onSearch = (keyWord) => {
+    console.log(keyWord);
+    this.setState({
+      keyWord: keyWord,
+    });
+  };
+
   render() {
+    var { keyWord } = this.state;
+    if (keyWord) {
+      STAFFS = STAFFS.filter((staff) => {
+        return staff.name.toLowerCase().indexOf(keyWord) !== -1;
+      });
+    }
+
     return (
       <div className="container-fluid">
         <div className="row">
@@ -39,7 +71,7 @@ export default class NhanVien extends Component {
             <Modal onSubmit={this.onSubmit} inNhanVien={this.inNhanVien} />
           </div>
           <div className="col-5">
-            <Search />
+            <Search onSearch={this.onSearch} />
           </div>
         </div>
         <hr />
