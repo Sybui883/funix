@@ -9,12 +9,13 @@ export default class NhanVien extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      STAFFS: {},
+      STAFFS: [],
       keyWord: "",
       filter: { name: "" },
     };
   }
 
+  // Lọc ký tự
   onFilter = (keyWord) => {
     console.log(keyWord);
     this.setState({
@@ -24,42 +25,38 @@ export default class NhanVien extends Component {
     });
   };
 
+  // Thêm Nhân Viên
   onSubmit = (data) => {
-    var {
-      name,
-      doB,
-      salaryScale,
-      startDate,
-      department,
-      annualLeave,
-      overTime,
-    } = this.state;
+    var { name, doB, startDate, annualLeave, overTime, department } =
+      this.state.STAFFS;
     data.id = Date.now();
-    STAFFS.push(data);
+    data.department.id = Date.now().toFixed(1);
     this.setState({
       name: name,
       doB: doB,
-      salaryScale: salaryScale,
       startDate: startDate,
       department: department,
       annualLeave: annualLeave,
       overTime: overTime,
     });
     localStorage.setItem("STAFFS", JSON.stringify(STAFFS));
+    STAFFS.push(data);
   };
 
+  // Tìm Kiếm
   onSearch = (keyWord) => {
-    console.log(keyWord);
     this.setState({
       keyWord: keyWord,
     });
   };
-
+  // Render lại sau khi ấn tìm
   render() {
     var { keyWord } = this.state;
+
+    // Điều kiện của keyword
     if (keyWord) {
       STAFFS = STAFFS.filter((staff) => {
-        return staff.name.toLowerCase().indexOf(keyWord) !== -1;
+        return staff.name.toLowerCase().indexOf(keyWord);
       });
     }
 
