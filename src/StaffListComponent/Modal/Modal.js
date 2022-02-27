@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Form } from "reactstrap";
+import { DEPARTMENTS } from "../staffs";
 
 export default class Modal extends Component {
   constructor(props) {
@@ -8,14 +10,16 @@ export default class Modal extends Component {
       doB: "",
       salaryScale: "1",
       startDate: "",
-      department: { name: "" },
+      department: { id: "", name: "" },
       annualLeave: "0",
       overTime: "0",
       image: "/assets/images/alberto.png",
+
       keyWord: "",
     };
   }
 
+  // onChange cho input
   onChange = (event) => {
     var target = event.target;
     var name = target.name;
@@ -30,19 +34,24 @@ export default class Modal extends Component {
     this.props.onSubmit(this.state);
   };
 
+  //  Validate input
+  validate = () => {};
+
   render() {
+    // Bóc tách thành phần
     var {
       name,
       doB,
       salaryScale,
       startDate,
-      department,
       annualLeave,
       overTime,
+      department,
     } = this.state;
+
     return (
       <div>
-        <form onSubmit={this.onSubmit}>
+        <Form onSubmit={this.onSubmit}>
           {/* Button trigger modal */}
           <button
             style={{ fontWeight: "bold", marginLeft: "30%" }}
@@ -125,14 +134,16 @@ export default class Modal extends Component {
                       id="department"
                       className="col-6"
                       name="department"
-                      defaultValue={department.name}
+                      defaultValue={department}
                       onChange={this.onChange}
                     >
-                      <option>Sale</option>
-                      <option>HR</option>
-                      <option>Marketing</option>
-                      <option>IT</option>
-                      <option>Finance</option>
+                      {DEPARTMENTS.map((depart) => {
+                        return (
+                          <option key={depart.id} defaultValue={depart.name}>
+                            {depart.name}
+                          </option>
+                        );
+                      })}
                     </select>
                   </div>
                   <div className="row my-3">
@@ -187,7 +198,7 @@ export default class Modal extends Component {
               </div>
             </div>
           </div>
-        </form>
+        </Form>
       </div>
     );
   }

@@ -8,16 +8,18 @@ export default class Search extends Component {
     };
   }
 
+  // onChange cho input
   onChange = (event) => {
     var target = event.target;
     var name = target.name;
     var value = target.value;
-    
+    console.log(this.state.keyWord);
     this.setState({
       [name]: value,
     });
   };
 
+  // Truyền Keyword ra ngoài NhanVien Component
   onSearch = () => {
     this.props.onSearch(this.state.keyWord);
   };
