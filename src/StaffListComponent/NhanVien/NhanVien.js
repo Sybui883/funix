@@ -5,18 +5,18 @@ import { DEPARTMENTS, STAFFS } from "../staffs";
 import Modal from "../Modal/Modal";
 import Search from "../Search/Search";
 
-var xID = 16;
+var staffID = STAFFS.length - 1;
 
 export default class NhanVien extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       staffs: STAFFS,
       keyWord: "",
     };
   }
 
+  // Tìm Kiếm
   onSearch = (keyWord) => {
     this.setState({ keyWord: keyWord });
   };
@@ -31,14 +31,15 @@ export default class NhanVien extends Component {
     localStorage.setItem("staffs", JSON.stringify(staffs));
   };
 
-  s4() {
-    return (xID += 1);
+  sID() {
+    return (staffID += 1);
   }
 
   generateID() {
-    return this.s4();
+    return this.sID();
   }
 
+  // render danh sách nhân viên
   renderNhanVien = ((staff) => {
     return (
       <Card>
@@ -51,10 +52,13 @@ export default class NhanVien extends Component {
   })
 
   render() {
+    // in lại danh sách sau khi tìm kiếm
     const danhSachNhanVien = this.state.staffs
       .filter((staff) => {
         return staff.name.toLowerCase().indexOf(this.state.keyWord) !== -1;
       })
+
+      // mapping danh sách nhân viên
       .map((staff) => {
         return (
           <div key={staff.id} className="col-12 col-sm-4 col-md-2 mt-3 mb-3">

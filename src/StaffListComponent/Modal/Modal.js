@@ -6,6 +6,7 @@ export default class Modal extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      deppart: DEPARTMENTS,
       name: "",
       doB: "",
       salaryScale: "1",
