@@ -6,27 +6,19 @@ export default class Modal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      departments: DEPARTMENTS,
-      name: '',
-      doB: '',
+      name: "",
+      doB: "",
       salaryScale: 1,
-      startDate: '',
+      startDate: "",
       department: {
-          id: '',
-          name: '',
-          numberOfStaff: 0
+        id: "",
+        name: "",
       },
       annualLeave: 0,
       overTime: 0,
-      message: '',
-      touched: {
-          name: false,
-          doB: false,
-          startDate: false,
-      },
-      isModalOpen: false
+      message: "",
+    };
   }
-}
   // onChange cho input
   onChange = (event) => {
     var target = event.target;
@@ -36,6 +28,7 @@ export default class Modal extends Component {
       [name]: value,
     });
   };
+
 
   onSubmit = (event) => {
     event.preventDefault();
@@ -106,7 +99,7 @@ export default class Modal extends Component {
                       required
                     ></input>
                   </div>
-                  {/* <div className="row my-3">
+                  <div className="row my-3">
                     <label htmlFor="doB" className="col-5">
                       Ngày Sinh
                     </label>
@@ -133,7 +126,7 @@ export default class Modal extends Component {
                       onChange={this.onChange}
                       required
                     ></input>
-                  </div> */}
+                  </div>
                   <div className="row my-3">
                     <label htmlFor="department" className="col-5">
                       Phòng Ban
@@ -144,13 +137,14 @@ export default class Modal extends Component {
                       name="department"
                       value={department.name}
                       onChange={this.onChange}
+                      required
                     >
-                    <option>--Chọn Phòng--</option>
-                    <option>Sale</option>
-                    <option>HR</option>
-                    <option>IT</option>
-                    <option>Marketing</option>
-                    <option>Finance</option>
+                      <option></option>
+                      <option>Sale</option>
+                      <option>HR</option>
+                      <option>IT</option>
+                      <option>Marketing</option>
+                      <option>Finance</option>
                     </select>
                   </div>
                   <div className="row my-3">
@@ -197,7 +191,18 @@ export default class Modal extends Component {
                     ></input>
                   </div>
                   <div className="modal-footer">
-                    <button type="submit" className="btn btn-primary">
+                    <button
+                      type="button"
+                      class="btn btn-secondary mx-5"
+                      data-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                    <button
+                      type="submit"
+                      className="btn btn-primary mx-5"
+                      data-toggle="modal"
+                    >
                       Thêm
                     </button>
                   </div>
