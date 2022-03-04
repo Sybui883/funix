@@ -189,22 +189,23 @@ export default class Modal extends Component {
                       name="overTime"
                       required
                     ></input>
+                    <button
+                      type="submit"
+                      className="btn btn-primary mt-3"
+                      style={{margin: 'auto'}}
+                    >
+                      Thêm
+                    </button>
                   </div>
                   <div className="modal-footer">
                     <button
                       type="button"
-                      class="btn btn-secondary mx-5"
+                      class="btn btn-secondary"
                       data-dismiss="modal"
                     >
                       Close
                     </button>
-                    <button
-                      type="submit"
-                      className="btn btn-primary mx-5"
-                      data-toggle="modal"
-                    >
-                      Thêm
-                    </button>
+                    
                   </div>
                 </div>
               </div>
