@@ -10,7 +10,7 @@ export default class Modal extends Component {
       doB: "",
       salaryScale: "1",
       startDate: "",
-      department: { id: "", name: "" },
+      department: '',
       annualLeave: "0",
       overTime: "0",
       image: "/assets/images/alberto.png",
@@ -93,12 +93,12 @@ export default class Modal extends Component {
                       className="col-6"
                       type="text"
                       name="name"
-                      defaultValue={name}
+                      value={name}
                       onChange={this.onChange}
                       required
                     ></input>
                   </div>
-                  <div className="row my-3">
+                  {/* <div className="row my-3">
                     <label htmlFor="doB" className="col-5">
                       Ngày Sinh
                     </label>
@@ -125,7 +125,7 @@ export default class Modal extends Component {
                       onChange={this.onChange}
                       required
                     ></input>
-                  </div>
+                  </div> */}
                   <div className="row my-3">
                     <label htmlFor="department" className="col-5">
                       Phòng Ban
@@ -134,16 +134,15 @@ export default class Modal extends Component {
                       id="department"
                       className="col-6"
                       name="department"
-                      defaultValue={department}
+                      value={department}
                       onChange={this.onChange}
                     >
-                      {DEPARTMENTS.map((depart) => {
-                        return (
-                          <option key={depart.id} defaultValue={depart.name}>
-                            {depart.name}
-                          </option>
-                        );
-                      })}
+                    <option value="Dept0">--Chọn Phòng--</option>
+                    <option value="Dept01">Sale</option>
+                    <option value="Dept02">HR</option>
+                    <option value="Dept03">IT</option>
+                    <option value="Dept04">Marketing</option>
+                    <option value="Dept05">Finance</option>
                     </select>
                   </div>
                   <div className="row my-3">

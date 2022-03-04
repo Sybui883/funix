@@ -1,12 +1,16 @@
 import React, { Fragment } from "react";
 import { useParams, Link } from "react-router-dom";
 import dateFormat from "dateformat";
-import { STAFFS } from "../staffs";
+import { DEPARTMENTS, STAFFS } from "../staffs";
 import { Breadcrumb, BreadcrumbItem } from "reactstrap";
 
 function ChiTietNhanVien() {
   const params = useParams();
   const staff = STAFFS.find((staff) => staff.id.toString() === params.staffId);
+
+  
+  console.log('DEPART ' + JSON.stringify(staff))
+  
   return (
     <Fragment>
       <Breadcrumb>

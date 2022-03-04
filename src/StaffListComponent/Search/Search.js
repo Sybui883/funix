@@ -10,10 +10,9 @@ export default class Search extends Component {
 
   // onChange cho input
   onChange = (event) => {
-    var target = event.target;
-    var name = target.name;
-    var value = target.value;
-    console.log(this.state.keyWord);
+    const target = event.target;
+    const name = target.name;
+    const value = target.value;
     this.setState({
       [name]: value,
     });
@@ -42,7 +41,7 @@ export default class Search extends Component {
           style={{ border: "0px", borderRadius: "5px", fontSize: "20px" }}
           onClick={this.onSearch} 
         >
-          Tìm
+          <i className="fa fa-search"></i>
         </button>
       </div>
     );

@@ -32,11 +32,11 @@ export default class BangLuong extends Component {
                 }}
                 id="Luong"
               >
-                Lương:{" "}
+                Lương:
                 {(
                   STAFF.salaryScale.toFixed(0) * basicSalary +
                   STAFF.overTime * overTimeSalary
-                ).toLocaleString()}{" "}
+                ).toLocaleString()}
                 VND
               </h5>
             </div>

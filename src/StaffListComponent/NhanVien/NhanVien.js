@@ -5,67 +5,70 @@ import { DEPARTMENTS, STAFFS } from "../staffs";
 import Modal from "../Modal/Modal";
 import Search from "../Search/Search";
 
+var xID = 16;
+
 export default class NhanVien extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      STAFFS: [],
+      staffs: STAFFS,
       keyWord: "",
-      filter: { name: "" },
     };
   }
 
-  // Lọc ký tự
-  onFilter = (keyWord) => {
-    console.log(keyWord);
-    this.setState({
-      filter: {
-        name: keyWord,
-      },
-    });
-  };
-
-  // Thêm Nhân Viên
-  onSubmit = (data) => {
-    var { name, doB, startDate, annualLeave, overTime, department } =
-      this.state.STAFFS;
-    data.id = Date.now();
-    data.department.id = Date.now().toFixed(1);
-    this.setState({
-      name: name,
-      doB: doB,
-      startDate: startDate,
-      department: department,
-      annualLeave: annualLeave,
-      overTime: overTime,
-    });
-    localStorage.setItem("STAFFS", JSON.stringify(STAFFS));
-    STAFFS.push(data);
-  };
-
-  // Tìm Kiếm
   onSearch = (keyWord) => {
-    this.setState({
-      keyWord: keyWord,
-    });
+    this.setState({ keyWord: keyWord });
   };
-  // Render lại sau khi ấn tìm
-  render() {
-    var { keyWord } = this.state;
 
-    // Điều kiện của keyword
-    if (keyWord) {
-      STAFFS = STAFFS.filter((staff) => {
-        return staff.name.toLowerCase().indexOf(keyWord);
+  onSubmit = (data) => {
+    var { staffs } = this.state;
+    data.id = this.generateID();
+    data.image = "/assets/images/alberto.png";
+    staffs.push(data);
+    this.setState({ staffs: staffs });
+
+    localStorage.setItem("staffs", JSON.stringify(staffs));
+  };
+
+  s4() {
+    return (xID += 1);
+  }
+
+  generateID() {
+    return this.s4();
+  }
+
+  renderNhanVien = ((staff) => {
+    return (
+      <Card>
+        <Link to={`/nhan-vien/${staff.id}`}>
+          <CardImg src={staff.image} alt={staff.name} />
+        </Link>
+        <h5 className="text-center">{staff.name}</h5>
+      </Card>
+    );
+  })
+
+  render() {
+    const danhSachNhanVien = this.state.staffs
+      .filter((staff) => {
+        return staff.name.toLowerCase().indexOf(this.state.keyWord) !== -1;
+      })
+      .map((staff) => {
+        return (
+          <div key={staff.id} className="col-12 col-sm-4 col-md-2 mt-3 mb-3">
+            {this.renderNhanVien(staff)}
+          </div>
+        );
       });
-    }
 
     return (
       <div className="container-fluid">
         <div className="row">
           <h1 className="col-3">Nhân viên</h1>
           <div className="col-3 m-2">
-            <Modal onSubmit={this.onSubmit} inNhanVien={this.inNhanVien} />
+            <Modal onSubmit={this.onSubmit} />
           </div>
           <div className="col-5">
             <Search onSearch={this.onSearch} />
@@ -73,26 +76,7 @@ export default class NhanVien extends Component {
         </div>
         <hr />
         <div className="container-fluid row">
-          {STAFFS.map((STAFFS) => {
-            return (
-              <div
-                className="col-2 my-2 text-center"
-                key={STAFFS.id}
-                id="nhanVien"
-              >
-                <Card onClick={this.renderNhanVien}>
-                  <Link to={`/nhan-vien/${STAFFS.id}`}>
-                    <CardImg
-                      className="card-img-top w-150 h-150"
-                      src={STAFFS.image}
-                      alt={STAFFS.name}
-                    ></CardImg>
-                    <CardTitle className="card-text"> {STAFFS.name}</CardTitle>
-                  </Link>
-                </Card>
-              </div>
-            );
-          })}
+          {danhSachNhanVien}
         </div>
       </div>
     );
