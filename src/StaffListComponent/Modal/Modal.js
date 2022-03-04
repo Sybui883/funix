@@ -6,20 +6,27 @@ export default class Modal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      deppart: DEPARTMENTS,
-      name: "",
-      doB: "",
-      salaryScale: "1",
-      startDate: "",
-      department: '',
-      annualLeave: "0",
-      overTime: "0",
-      image: "/assets/images/alberto.png",
-
-      keyWord: "",
-    };
+      departments: DEPARTMENTS,
+      name: '',
+      doB: '',
+      salaryScale: 1,
+      startDate: '',
+      department: {
+          id: '',
+          name: '',
+          numberOfStaff: 0
+      },
+      annualLeave: 0,
+      overTime: 0,
+      message: '',
+      touched: {
+          name: false,
+          doB: false,
+          startDate: false,
+      },
+      isModalOpen: false
   }
-
+}
   // onChange cho input
   onChange = (event) => {
     var target = event.target;
@@ -135,15 +142,15 @@ export default class Modal extends Component {
                       id="department"
                       className="col-6"
                       name="department"
-                      value={department}
+                      value={department.name}
                       onChange={this.onChange}
                     >
-                    <option value="Dept0">--Chọn Phòng--</option>
-                    <option value="Dept01">Sale</option>
-                    <option value="Dept02">HR</option>
-                    <option value="Dept03">IT</option>
-                    <option value="Dept04">Marketing</option>
-                    <option value="Dept05">Finance</option>
+                    <option>--Chọn Phòng--</option>
+                    <option>Sale</option>
+                    <option>HR</option>
+                    <option>IT</option>
+                    <option>Marketing</option>
+                    <option>Finance</option>
                     </select>
                   </div>
                   <div className="row my-3">
