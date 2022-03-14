@@ -137,7 +137,7 @@ export default class Modal extends Component {
                       id="department"
                       className="col-6 w3-select"
                       name="department"
-                      value={department.name}
+                      defaultValue={department.name}
                       onChange={this.onChange}
                       required
                     >
@@ -202,7 +202,7 @@ export default class Modal extends Component {
                   <div className="modal-footer">
                     <button
                       type="button"
-                      class="btn btn-secondary"
+                      className="btn btn-secondary"
                       data-dismiss="modal"
                     >
                       Đóng

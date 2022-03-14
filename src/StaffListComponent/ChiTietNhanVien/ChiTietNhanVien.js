@@ -7,9 +7,6 @@ import { Breadcrumb, BreadcrumbItem } from "reactstrap";
 function ChiTietNhanVien() {
   const params = useParams();
   const staff = STAFFS.find((staff) => staff.id.toString() === params.staffId);
-
-  
-  console.log('DEPART ' + JSON.stringify(staff))
   
   return (
     <Fragment>
