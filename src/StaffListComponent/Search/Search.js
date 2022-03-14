@@ -29,7 +29,7 @@ export default class Search extends Component {
     return (
       <div className="row m-2">
         <input
-          className="col-9"
+          className="col-9 form-control mr-sm-2"
           type="text"
           placeholder="Tìm Kiếm..."
           name="keyWord"
@@ -37,9 +37,8 @@ export default class Search extends Component {
           onChange={this.onChange}
         />
         <button
-          className="mx-3 bg-primary text-white"
-          style={{ border: "0px", borderRadius: "5px", fontSize: "20px" }}
-          onClick={this.onSearch} 
+          className="mx-3 btn btn-primary"
+          onClick={this.onSearch}
         >
           <i className="fa fa-search"></i>
         </button>

@@ -21,14 +21,14 @@ function ChiTietNhanVien() {
       </Breadcrumb>
       <div className="container-fluid">
         <div className="row m-3">
-          <div className="col-3">
+          <div className="col-3 w3-animate-opacity">
             <img
               style={{ width: "100%" }}
               src={staff?.image}
               alt={staff?.name}
             />
           </div>
-          <div className="col-8">
+          <div className="col-8 w3-container w3-animate-right">
             <h2>Họ và tên: {staff?.name}</h2>
             <p>Ngày sinh: {dateFormat(staff?.doB, "dd/mm/yyyy")}</p>
             <p>

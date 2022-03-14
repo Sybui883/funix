@@ -43,6 +43,8 @@ export default class NhanVien extends Component {
   this.setState({staffs: staffs});
 
     localStorage.setItem("staffs", JSON.stringify(staffs));
+
+
   };
 
   sID() {
@@ -58,9 +60,13 @@ export default class NhanVien extends Component {
     return (
       <Card>
         <Link to={`/nhan-vien/${staff.id}`}>
-          <CardImg src={staff.image} alt={staff.name} />
+          <CardImg
+            src={staff.image}
+            alt={staff.name}
+            title={staff.department.name}
+          />
         </Link>
-        <h5 className="text-center">{staff.name}</h5>
+        <h5 className="text-center w3-tooltip">{staff.name}</h5>
       </Card>
     );
   })
@@ -75,7 +81,10 @@ export default class NhanVien extends Component {
       // mapping danh sách nhân viên
       .map((staff) => {
         return (
-          <div key={staff.id} className="col-12 col-sm-4 col-md-2 mt-3 mb-3">
+          <div
+            key={staff.id}
+            className="col-12 col-sm-4 col-md-2 mt-3 mb-3 w3-animate-opacity w3-hover-opacity"
+          >
             {this.renderNhanVien(staff)}
           </div>
         );
@@ -84,18 +93,17 @@ export default class NhanVien extends Component {
     return (
       <div className="container-fluid">
         <div className="row">
-          <h1 className="col-3">Nhân viên</h1>
-          <div className="col-3 m-2">
+          <h1 className="col-4">Nhân viên</h1>
+          <div className="col-3 my-2 text-center">
             <Modal onSubmit={this.onSubmit} />
           </div>
-          <div className="col-5">
+          <div className="col-4">
             <Search onSearch={this.onSearch} />
           </div>
         </div>
         <hr />
-        <div className="container-fluid row">
-          {danhSachNhanVien}
-        </div>
+        <div className="container-fluid row">{danhSachNhanVien}</div>
+        
       </div>
     );
   }

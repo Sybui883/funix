@@ -15,11 +15,11 @@ export default class BangLuong extends Component {
           </BreadcrumbItem>
           <BreadcrumbItem active>Bảng Lương</BreadcrumbItem>
         </Breadcrumb>
-        <div className="container-fluid row">
+        <div className="container row">
           {STAFFS.map((STAFF) => (
             <div
               style={{ border: "1px solid grey", margin: "10px" }}
-              className="col-3"
+              className="col-3 w3-animate-zoom"
               id="BangLuong"
               key={STAFF.id}
             >
@@ -41,11 +41,12 @@ export default class BangLuong extends Component {
                 id="Luong"
               >
                 Lương:
-                {(
-                  STAFF.salaryScale.toFixed(0) * basicSalary +
-                  STAFF.overTime * overTimeSalary
-                ).toLocaleString()}
-                VND
+                {" " +
+                  (
+                    STAFF.salaryScale.toFixed(0) * basicSalary +
+                    STAFF.overTime * overTimeSalary
+                  ).toLocaleString()}
+                -VND
               </h5>
             </div>
           ))}

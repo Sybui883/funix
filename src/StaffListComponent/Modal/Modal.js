@@ -55,12 +55,14 @@ export default class Modal extends Component {
         <Form onSubmit={this.onSubmit}>
           {/* Button trigger modal */}
           <button
-            style={{ fontWeight: "bold", marginLeft: "30%" }}
-            className="btn btn-dark"
+            className="btn btn-dark btn-lg w3-tooltip"
             data-toggle="modal"
             data-target="#modelId"
           >
-            +
+            <i className="fa fa-plus-circle"></i>
+            <span className="w3-text">
+              <em>Thêm Nhân Viên</em>
+            </span>
           </button>
           {/* Modal */}
           <div
@@ -133,13 +135,13 @@ export default class Modal extends Component {
                     </label>
                     <select
                       id="department"
-                      className="col-6"
+                      className="col-6 w3-select"
                       name="department"
                       value={department.name}
                       onChange={this.onChange}
                       required
                     >
-                      <option></option>
+                      <option className="text-center" value='' disabled selected>Chọn Phòng Ban</option>
                       <option>Sale</option>
                       <option>HR</option>
                       <option>IT</option>
@@ -191,8 +193,8 @@ export default class Modal extends Component {
                     ></input>
                     <button
                       type="submit"
-                      className="btn btn-primary mt-3"
-                      style={{margin: 'auto'}}
+                      className="btn btn-primary mt-5"
+                      style={{ margin: "auto" }}
                     >
                       Thêm
                     </button>
@@ -203,9 +205,8 @@ export default class Modal extends Component {
                       class="btn btn-secondary"
                       data-dismiss="modal"
                     >
-                      Close
+                      Đóng
                     </button>
-                    
                   </div>
                 </div>
               </div>
