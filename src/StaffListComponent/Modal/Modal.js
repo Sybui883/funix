@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Form } from "reactstrap";
-import { DEPARTMENTS } from "../staffs";
+import { DEPARTMENTS } from "../departments";
 
 export default class Modal extends Component {
   constructor(props) {
@@ -10,15 +10,15 @@ export default class Modal extends Component {
       doB: "",
       salaryScale: 1,
       startDate: "",
-      department: {
-        id: "",
-        name: "",
-      },
+      departmentId: '',
       annualLeave: 0,
       overTime: 0,
       message: "",
     };
   }
+
+
+
   // onChange cho input
   onChange = (event) => {
     var target = event.target;
@@ -47,7 +47,7 @@ export default class Modal extends Component {
       startDate,
       annualLeave,
       overTime,
-      department,
+      departmentId,
     } = this.state;
 
     return (
@@ -137,16 +137,21 @@ export default class Modal extends Component {
                       id="department"
                       className="col-6 w3-select"
                       name="department"
-                      defaultValue={department.name}
+                      defaultValue={departmentId}
                       onChange={this.onChange}
                       required
                     >
-                      <option className="text-center" value='' disabled selected>Chọn Phòng Ban</option>
-                      <option>Sale</option>
-                      <option>HR</option>
-                      <option>IT</option>
-                      <option>Marketing</option>
-                      <option>Finance</option>
+                      <option
+                        className="text-center"
+                        value=""
+                        disabled
+                        selected
+                      >
+                        Chọn Phòng Ban
+                      </option>
+                      {DEPARTMENTS.map((depart) => (
+                        <option key={depart.id} value={depart.id}>{depart.name}</option>
+                      ))}
                     </select>
                   </div>
                   <div className="row my-3">

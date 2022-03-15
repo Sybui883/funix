@@ -23,7 +23,7 @@ export default class BangLuong extends Component {
               id="BangLuong"
               key={STAFF.id}
             >
-              <h1>{STAFF.name}</h1>
+              <h3>{STAFF.name}</h3>
               <p className="px-3">Mã số nhân viên: {STAFF.id}</p>
               <p className="px-3">
                 Hệ số lương: {STAFF.salaryScale.toFixed(0)}

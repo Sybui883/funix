@@ -1,21 +1,39 @@
 import React, { Component } from "react";
-import { Card, CardImg, CardTitle } from "reactstrap";
+import { Card, CardImg } from "reactstrap";
+import Axios from "axios";
 import { Link } from "react-router-dom";
 import { STAFFS } from "../staffs";
 import { DEPARTMENTS } from "../departments";
 import Modal from "../Modal/Modal";
 import Search from "../Search/Search";
+import {baseUrl} from '../../redux/BaseUrl/BaseUrl'
 
 var staffID = STAFFS.length - 1;
 
 export default class NhanVien extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+  state = {
       staffs: STAFFS,
+      department: DEPARTMENTS,
       keyWord: "",
     };
-  }
+  
+
+    getStaffsList = () => {
+      let promise = Axios({
+        url: baseUrl,
+        method: 'GET'
+      })
+      promise.then((result) => {
+        this.setState({
+          staffs: result.data,
+          department: result.data
+        })
+      })
+    }
+
+    componentDidMount() {
+      this.getStaffsList();
+    }
 
   // Tìm Kiếm
   onSearch = (keyWord) => {
@@ -24,16 +42,14 @@ export default class NhanVien extends Component {
 
   onSubmit = (data) => {
     var { staffs } = this.state;
+    var {department} = this.state
     var newStaff = {
       id: this.generateID(),
       name: data.name,
       doB: data.doB,
       salaryScale: data.salaryScale,
       startDate: data.startDate,
-      department: {
-        id: "",
-        name: data.department,
-      },
+      departmentId: data.department,
       annualLeave: data.annualLeave,
       overTime: data.overTime,
       image: "/assets/images/alberto.png",
@@ -41,10 +57,13 @@ export default class NhanVien extends Component {
     // data.id = this.generateID();
     // data.image = '/assets/images/alberto.png';
     staffs.push(newStaff);
-    this.setState({ staffs: staffs });
+    this.setState({ staffs: staffs,
+    department: department });
 
     localStorage.setItem("staffs", JSON.stringify(staffs));
+    localStorage.setItem("department", JSON.stringify(department));
   };
+  
 
   sID() {
     return (staffID += 1);
@@ -57,7 +76,7 @@ export default class NhanVien extends Component {
   // render danh sách nhân viên
   renderNhanVien = (staff) => {
     return (
-      <Card>
+      <Card className="w3-animate-opacity">
         <Link to={`/nhan-vien/${staff.id}`}>
           <CardImg src={staff.image} alt={staff.name} />
         </Link>

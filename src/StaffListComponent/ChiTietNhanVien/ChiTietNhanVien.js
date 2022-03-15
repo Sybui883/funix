@@ -1,12 +1,19 @@
 import React, { Fragment } from "react";
 import { useParams, Link } from "react-router-dom";
 import dateFormat from "dateformat";
-import { DEPARTMENTS, STAFFS } from "../staffs";
+import { STAFFS } from "../staffs";
+import { DEPARTMENTS } from "../departments";
+
 import { Breadcrumb, BreadcrumbItem } from "reactstrap";
 
 function ChiTietNhanVien() {
   const params = useParams();
   const staff = STAFFS.find((staff) => staff.id.toString() === params.staffId);
+  const depart = DEPARTMENTS.find((depart) => depart.id === staff.departmentId) 
+
+  console.log('staffs', staff);
+
+  console.log('abc',depart);
   
   return (
     <Fragment>
@@ -31,7 +38,7 @@ function ChiTietNhanVien() {
             <p>
               Ngày vào công ty: {dateFormat(staff?.startDate, "dd/mm/yyyy")}
             </p>
-            <p>Phòng ban: {staff?.department.name}</p>
+            <p>Phòng ban: {depart?.name}</p>
             <p>Số ngày nghỉ còn lại: {staff?.annualLeave}</p>
             <p>Số ngày đã làm thêm: {staff?.overTime}</p>
           </div>
