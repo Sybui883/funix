@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Breadcrumb, BreadcrumbItem } from "reactstrap";
+import { Breadcrumb, BreadcrumbItem, Card, CardTitle } from "reactstrap";
 import { STAFFS } from "../staffs";
 
 export default class BangLuong extends Component {
@@ -15,15 +15,15 @@ export default class BangLuong extends Component {
           </BreadcrumbItem>
           <BreadcrumbItem active>Bảng Lương</BreadcrumbItem>
         </Breadcrumb>
-        <div className="container row">
+        <div className="container-fluid row">
           {STAFFS.map((STAFF) => (
-            <div
-              style={{ border: "1px solid grey", margin: "10px" }}
-              className="col-3 w3-animate-zoom"
+            <Card
+              style={{ border: "1px solid grey"}}
+              className="col-3 my-3 mx-3 w3-animate-zoom"
               id="BangLuong"
               key={STAFF.id}
             >
-              <h3>{STAFF.name}</h3>
+              <h3 className="py-1">{STAFF.name}</h3>
               <p className="px-3">Mã số nhân viên: {STAFF.id}</p>
               <p className="px-3">
                 Hệ số lương: {STAFF.salaryScale.toFixed(0)}
@@ -41,14 +41,13 @@ export default class BangLuong extends Component {
                 id="Luong"
               >
                 Lương:
-                {" " +
-                  (
+               <mark>{(
                     STAFF.salaryScale.toFixed(0) * basicSalary +
                     STAFF.overTime * overTimeSalary
-                  ).toLocaleString()}
-                -VND
+                  ).toLocaleString()}</mark>
+                VND
               </h5>
-            </div>
+            </Card>
           ))}
         </div>
       </div>

@@ -11,10 +11,6 @@ function ChiTietNhanVien() {
   const staff = STAFFS.find((staff) => staff.id.toString() === params.staffId);
   const depart = DEPARTMENTS.find((depart) => depart.id === staff.departmentId) 
 
-  console.log('staffs', staff);
-
-  console.log('abc',depart);
-  
   return (
     <Fragment>
       <Breadcrumb>
