@@ -8,7 +8,7 @@ export default (state = initialState, {action}) => {
   switch (action.type) {
 
   case GET_API:
-    return { ...state}
+    return {...state}
 
   default:
     return {...state}

@@ -7,7 +7,7 @@ export default class Search extends Component {
       keyWord: '',
     };
   }
-
+  
   // onChange cho input
   onChange = (event) => {
     const target = event.target;

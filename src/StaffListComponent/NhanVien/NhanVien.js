@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Card, CardImg, CardTitle } from "reactstrap";
 import { Link } from "react-router-dom";
-import { DEPARTMENTS, STAFFS } from "../staffs";
+import { STAFFS } from "../staffs";
+import { DEPARTMENTS } from "../departments";
 import Modal from "../Modal/Modal";
 import Search from "../Search/Search";
 
@@ -30,21 +31,19 @@ export default class NhanVien extends Component {
       salaryScale: data.salaryScale,
       startDate: data.startDate,
       department: {
-          id: '',
-          name: data.department
+        id: "",
+        name: data.department,
       },
       annualLeave: data.annualLeave,
       overTime: data.overTime,
-      image: '/assets/images/alberto.png'
-  };
-  // data.id = this.generateID();
-  // data.image = '/assets/images/alberto.png';
-  staffs.push(newStaff);
-  this.setState({staffs: staffs});
+      image: "/assets/images/alberto.png",
+    };
+    // data.id = this.generateID();
+    // data.image = '/assets/images/alberto.png';
+    staffs.push(newStaff);
+    this.setState({ staffs: staffs });
 
     localStorage.setItem("staffs", JSON.stringify(staffs));
-
-
   };
 
   sID() {
@@ -56,20 +55,16 @@ export default class NhanVien extends Component {
   }
 
   // render danh sách nhân viên
-  renderNhanVien = ((staff) => {
+  renderNhanVien = (staff) => {
     return (
       <Card>
         <Link to={`/nhan-vien/${staff.id}`}>
-          <CardImg
-            src={staff.image}
-            alt={staff.name}
-            title={staff.department.name}
-          />
+          <CardImg src={staff.image} alt={staff.name} />
         </Link>
-        <h5 className="text-center w3-tooltip">{staff.name}</h5>
+        <h5 className="text-center">{staff.name}</h5>
       </Card>
     );
-  })
+  };
 
   render() {
     // in lại danh sách sau khi tìm kiếm
@@ -81,10 +76,7 @@ export default class NhanVien extends Component {
       // mapping danh sách nhân viên
       .map((staff) => {
         return (
-          <div
-            key={staff.id}
-            className="col-12 col-sm-4 col-md-2 mt-3 mb-3 w3-animate-opacity w3-hover-opacity"
-          >
+          <div key={staff.id} className="col-12 col-sm-4 col-md-2 mt-3 mb-3">
             {this.renderNhanVien(staff)}
           </div>
         );
@@ -93,17 +85,16 @@ export default class NhanVien extends Component {
     return (
       <div className="container-fluid">
         <div className="row">
-          <h1 className="col-4">Nhân viên</h1>
-          <div className="col-3 my-2 text-center">
+          <h1 className="col-3">Nhân viên</h1>
+          <div className="col-3 m-2">
             <Modal onSubmit={this.onSubmit} />
           </div>
-          <div className="col-4">
+          <div className="col-5">
             <Search onSearch={this.onSearch} />
           </div>
         </div>
         <hr />
         <div className="container-fluid row">{danhSachNhanVien}</div>
-        
       </div>
     );
   }

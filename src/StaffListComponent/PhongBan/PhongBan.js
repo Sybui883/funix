@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Breadcrumb, BreadcrumbItem } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import { DEPARTMENTS } from '../staffs'
+import { DEPARTMENTS } from '../departments'
 
 export default class PhongBan extends Component {
   render() {
