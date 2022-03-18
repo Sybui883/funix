@@ -2,38 +2,35 @@ import React, { Component } from "react";
 import { Card, CardImg } from "reactstrap";
 import Axios from "axios";
 import { Link } from "react-router-dom";
-import { STAFFS } from "../staffs";
-import { DEPARTMENTS } from "../departments";
 import Modal from "../Modal/Modal";
 import Search from "../Search/Search";
-import {baseUrl} from '../../redux/BaseUrl/BaseUrl'
+import { baseUrl } from "../../redux/BaseUrl/BaseUrl";
 
-var staffID = STAFFS.length - 1;
 
 export default class NhanVien extends Component {
   state = {
-      staffs: STAFFS,
-      department: DEPARTMENTS,
-      keyWord: "",
-    };
-  
+    staffs: [],
+    department: [],
+    keyWord: "",
+  };
 
-    getStaffsList = () => {
-      let promise = Axios({
-        url: baseUrl,
-        method: 'GET'
-      })
-      promise.then((result) => {
-        this.setState({
-          staffs: result.data,
-          department: result.data
-        })
-      })
-    }
+  getStaffsList = () => {
+    let promise = Axios({
+      url: baseUrl + 'staffs',
+      method: "GET",
+    });
+    promise.then((result) => {
+      console.log(result.data);
+      this.setState({
+        staffs: result.data,
+        department: result.data,
+      });
+    });
+  };
 
-    componentDidMount() {
-      this.getStaffsList();
-    }
+  componentDidMount() {
+    this.getStaffsList();
+  }
 
   // Tìm Kiếm
   onSearch = (keyWord) => {
@@ -42,9 +39,9 @@ export default class NhanVien extends Component {
 
   onSubmit = (data) => {
     var { staffs } = this.state;
-    var {department} = this.state
+    var { department } = this.state;
     var newStaff = {
-      id: this.generateID(),
+      id: this.props.staffs.id += 1,
       name: data.name,
       doB: data.doB,
       salaryScale: data.salaryScale,
@@ -57,21 +54,11 @@ export default class NhanVien extends Component {
     // data.id = this.generateID();
     // data.image = '/assets/images/alberto.png';
     staffs.push(newStaff);
-    this.setState({ staffs: staffs,
-    department: department });
+    this.setState({ staffs: staffs, department: department });
 
     localStorage.setItem("staffs", JSON.stringify(staffs));
     localStorage.setItem("department", JSON.stringify(department));
   };
-  
-
-  sID() {
-    return (staffID += 1);
-  }
-
-  generateID() {
-    return this.sID();
-  }
 
   // render danh sách nhân viên
   renderNhanVien = (staff) => {
