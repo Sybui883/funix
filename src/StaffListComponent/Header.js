@@ -18,35 +18,41 @@ class Header extends Component {
     }
 
     render() {
-        return(
-            <React.Fragment>
-                <Navbar dark expand='sm'>
-                    <div className="container">
-                        <NavbarToggler onClick={this.toggleNav} />
-                        <NavbarBrand className="mr-auto mrColl" href="/"><img src='asset/images/logo.png' height='30' width='41' alt='logo' /></NavbarBrand>
-                        <Collapse isOpen={this.state.isNavOpen} navbar>
-                            <Nav navbar>
-                                <NavItem>
-                                    <NavLink className='nav-link' to='/staffs'>
-                                        <span className='fa fa-users' /> Nhân Viên
-                                    </NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink className='nav-link' to='/departments'>
-                                        <span className='fa fa-id-card-o' /> Phòng Ban
-                                    </NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink className='nav-link' to='/payroll'>
-                                        <span className='fa fa-money' /> Bản Lương
-                                    </NavLink>
-                                </NavItem>
-                            </Nav>
-                        </Collapse>
-                    </div>
-                </Navbar>
-            </React.Fragment>
-        )
+        return (
+          <React.Fragment>
+            <Navbar dark expand="sm" className='bg-primary'>
+              <div className="container">
+                <div className='row' onClick={this.toggleNav} />
+                <NavbarBrand className='col-4' href="/">
+                  <img
+                    src="assets/images/logo.png"
+                    width="50"
+                    alt="logo"
+                  />
+                </NavbarBrand>
+                <Collapse isOpen={this.state.isNavOpen} navbar>
+                  <Nav navbar className='col-8'>
+                    <NavItem>
+                      <NavLink className="nav-link" to="/staffs">
+                        <span className="fa fa-users fa-lg" /> Nhân Viên
+                      </NavLink>
+                    </NavItem>
+                    <NavItem>
+                      <NavLink className="nav-link" to="/departments">
+                        <span className="fa fa-address-card fa-lg" /> Phòng Ban
+                      </NavLink>
+                    </NavItem>
+                    <NavItem>
+                      <NavLink className="nav-link" to="/payroll">
+                        <span className="fa fa-money-bill fa-lg" />  Bảng Lương
+                      </NavLink>
+                    </NavItem>
+                  </Nav>
+                </Collapse>
+              </div>
+            </Navbar>
+          </React.Fragment>
+        );
     }
 }
 

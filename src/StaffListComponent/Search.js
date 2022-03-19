@@ -31,24 +31,22 @@ class Search extends Component {
           <div className="col-12 col-sm-12">
             <Form>
               <FormGroup row>
-                <div className="col-10 col-sm-10 col-md-10">
-                  <Input
-                    type="text"
-                    name="keyword"
-                    className="form-control"
-                    value={this.state.keyword}
-                    onChange={this.handleChange}
-                  />
-                </div>
-                <div className="col-2 col-sm-2 col-md-2">
-                  <Button
-                    type="button"
-                    color="primary"
-                    onClick={this.handleClick}
-                  >
-                    Tìm
-                  </Button>
-                </div>
+                <Input
+                  className="col-9 form-control mr-sm-2"
+                  type="text"
+                  name="keyword"
+                  value={this.state.keyword}
+                  onChange={this.handleChange}
+                  placeholder="Tìm Tên..."
+                />
+                <Button
+                  className="mx-3 btn btn-primary"
+                  type="button"
+                  color="primary"
+                  onClick={this.handleClick}
+                >
+                  <i className="fa fa-search"></i>
+                </Button>
               </FormGroup>
             </Form>
           </div>

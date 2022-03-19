@@ -63,12 +63,12 @@ class NhanVien extends Component {
 
   renderNhanVien(staff) {
     return (
-        <Card>
-          <Link to={`/staffs/${staff.id}`}>
-            <CardImg src={staff.image} alt={staff.name} />
-          </Link>
-          <h4 className="nameStaff">{staff.name}</h4>
-        </Card>
+      <Card>
+        <Link to={`/staffs/${staff.id}`}>
+          <CardImg src={staff.image} alt={staff.name} />
+        </Link>
+        <h6 className="text-center p-1">{staff.name}</h6>
+      </Card>
     );
   }
 
@@ -79,7 +79,10 @@ class NhanVien extends Component {
       })
       .map((staff) => {
         return (
-          <div key={staff.id} className="col-12 col-sm-4 col-md-2 mt-3 mb-3">
+          <div
+            key={staff.id}
+            className="col-12 col-sm-4 col-md-2 mt-3 mb-3 w3-animate-opacity w3-hover-opacity"
+          >
             {this.renderNhanVien(staff)}
           </div>
         );
@@ -104,24 +107,18 @@ class NhanVien extends Component {
     } else {
       return (
         <div className="container">
-          {" "}
-          <br />
-          <div className="row">
-            <div className="col-12 col-sm-12 col-md-6">
-              <div className="row">
-                <div className="col-10 col-sm-10 col-md-10">
-                  <h3>Nhân Viên</h3>
-                </div>
-                <div className="col-2 col-sm-2 col-md-2">
-                  <ThemNhanVien onSubmit={this.onSubmit} />
-                </div>
-              </div>
+          <div className="row mt-3">
+            <div className="col-4">
+              <h3>Nhân Viên</h3>
             </div>
-            <div className="col-12 col-sm-12 col-md-6">
+            <div className="col-4 text-center">
+              <ThemNhanVien onSubmit={this.onSubmit} />
+            </div>
+            <div className="col-4">
               <Search onSearch={this.onSearch} />
             </div>
-          </div>{" "}
-          <hr />
+          </div>
+          <hr/>
           <div className="row">{NhanVien}</div>
         </div>
       );

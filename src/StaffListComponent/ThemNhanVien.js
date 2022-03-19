@@ -1,29 +1,33 @@
 import React, { Component } from "react";
+import { Form } from "reactstrap";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
-import { Form } from "reactstrap";
+const mapStateToProps = (state) => {
+  return {
+    departments: state.departments,
+  };
+};
+
+const required = (val) => val && val.length;
+const maxLength = (len) => (val) => !val || val.length <= len;
+const minLength = (len) => (val) => val && val.length >= len;
 
 class ThemNhanVien extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      name: "",
-      doB: "",
-      salaryScale: 1,
-      startDate: "",
-      departmentId: "",
-      annualLeave: 0,
-      overTime: 0,
-      message: "",
+      isModalOpen: false,
     };
   }
 
-  // onChange cho input
+
   onChange = (event) => {
     var target = event.target;
-    var name = target.name;
     var value = target.value;
+    var name = target.name;
+
     this.setState({
       [name]: value,
     });
@@ -34,21 +38,7 @@ class ThemNhanVien extends Component {
     this.props.onSubmit(this.state);
   };
 
-  //  Validate input
-  validate = () => {};
-
   render() {
-    // Bóc tách thành phần
-    var {
-      name,
-      doB,
-      salaryScale,
-      startDate,
-      annualLeave,
-      overTime,
-      departmentId,
-    } = this.state;
-
     return (
       <div>
         <Form onSubmit={this.onSubmit}>
@@ -95,8 +85,12 @@ class ThemNhanVien extends Component {
                       className="col-6"
                       type="text"
                       name="name"
-                      value={name}
                       onChange={this.onChange}
+                      validators={{
+                        required,
+                        minLength: minLength(3),
+                        maxLength: maxLength(30),
+                      }}
                       required
                     ></input>
                   </div>
@@ -109,7 +103,7 @@ class ThemNhanVien extends Component {
                       className="col-6"
                       type="date"
                       name="doB"
-                      defaultValue={doB}
+                      value={this.state.tenState}
                       onChange={this.onChange}
                       required
                     ></input>
@@ -123,7 +117,7 @@ class ThemNhanVien extends Component {
                       className="col-6"
                       type="date"
                       name="startDate"
-                      defaultValue={startDate}
+                      value={this.state.tenState}
                       onChange={this.onChange}
                       required
                     ></input>
@@ -136,7 +130,6 @@ class ThemNhanVien extends Component {
                       id="department"
                       className="col-6 w3-select"
                       name="department"
-                      defaultValue={departmentId}
                       onChange={this.onChange}
                       required
                     >
@@ -164,7 +157,6 @@ class ThemNhanVien extends Component {
                       className="col-6"
                       type="text"
                       name="salaryScale"
-                      defaultValue={salaryScale}
                       onChange={this.onChange}
                       required
                     ></input>
@@ -177,7 +169,6 @@ class ThemNhanVien extends Component {
                       id="annualLeave"
                       className="col-6"
                       type="text"
-                      defaultValue={annualLeave}
                       onChange={this.onChange}
                       name="annualLeave"
                       style={{ lineHeight: "0" }}
@@ -192,7 +183,6 @@ class ThemNhanVien extends Component {
                       id="overTime"
                       className="col-6"
                       type="text"
-                      defaultValue={overTime}
                       onChange={this.onChange}
                       name="overTime"
                       required
@@ -223,11 +213,5 @@ class ThemNhanVien extends Component {
     );
   }
 }
-
-const mapStateToProps = (state) => {
-  return {
-    departments: state.departments,
-  };
-};
 
 export default withRouter(connect(mapStateToProps)(ThemNhanVien));
