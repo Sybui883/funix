@@ -1,8 +1,10 @@
 import React, { Component } from "react";
-import { Form } from "reactstrap";
-import { DEPARTMENTS } from "../departments";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
-export default class Modal extends Component {
+import { Form } from "reactstrap";
+
+class ThemNhanVien extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -10,14 +12,12 @@ export default class Modal extends Component {
       doB: "",
       salaryScale: 1,
       startDate: "",
-      departmentId: '',
+      departmentId: "",
       annualLeave: 0,
       overTime: 0,
       message: "",
     };
   }
-
-
 
   // onChange cho input
   onChange = (event) => {
@@ -28,7 +28,6 @@ export default class Modal extends Component {
       [name]: value,
     });
   };
-
 
   onSubmit = (event) => {
     event.preventDefault();
@@ -149,8 +148,10 @@ export default class Modal extends Component {
                       >
                         Chọn Phòng Ban
                       </option>
-                      {DEPARTMENTS.map((depart) => (
-                        <option key={depart.id} value={depart.id}>{depart.name}</option>
+                      {this.props.departments.departments.map((depart) => (
+                        <option key={depart.id} value={depart.id}>
+                          {depart.name}
+                        </option>
                       ))}
                     </select>
                   </div>
@@ -222,3 +223,11 @@ export default class Modal extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    departments: state.departments,
+  };
+};
+
+export default withRouter(connect(mapStateToProps)(ThemNhanVien));

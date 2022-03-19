@@ -1,14 +1,23 @@
-import React, { Component } from 'react'
-import Footer from './StaffListComponent/Footer/Footer'
-import Nav from './StaffListComponent/Nav/Nav'
+import React, { Component } from "react";
+import "./StaffListComponent/css/App.css";
+import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import Home from "./StaffListComponent/Home";
+import { ConfigStore } from "./StaffListComponent/redux/ConfigStore";
 
-export default class App extends Component {
+const store = ConfigStore();
+
+class App extends Component {
   render() {
     return (
-      <div className='container-fluid'>
-        <Nav />
-        <Footer />
-      </div>
-    )
+      <Provider store={store}>
+        <BrowserRouter>
+          <div>
+            <Home />
+          </div>
+        </BrowserRouter>
+      </Provider>
+    );
   }
 }
+export default App;
