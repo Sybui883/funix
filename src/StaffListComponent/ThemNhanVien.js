@@ -22,7 +22,6 @@ class ThemNhanVien extends Component {
     };
   }
 
-
   onChange = (event) => {
     var target = event.target;
     var value = target.value;

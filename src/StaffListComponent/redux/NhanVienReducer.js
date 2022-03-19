@@ -1,31 +1,34 @@
-import * as ActionTypes from './ActionTypes';
+import * as ActionTypes from "./ActionTypes";
 
-export const Staffs = (state = {
-        isLoading: true, 
+export const Staffs = (
+  state = {
+    isLoading: true,
+    errMess: null,
+    staffs: [],
+  },
+  action
+) => {
+  switch (action.type) {
+    case ActionTypes.ADD_NHANVIEN:
+      return {
+        ...state,
+        isLoading: false,
         errMess: null,
-        staffs: []
-    }, action) => {
-        switch (action.type) {
-          case ActionTypes.ADD_NHANVIEN:
-            return {
-              ...state,
-              isLoading: false,
-              errMess: null,
-              staffs: action.payload,
-            };
+        staffs: action.payload,
+      };
 
-          case ActionTypes.NHANVIEN_LOADING:
-            return { ...state, isLoading: true, errMess: null, staffs: [] };
+    case ActionTypes.NHANVIEN_LOADING:
+      return { ...state, isLoading: true, errMess: null, staffs: [] };
 
-          case ActionTypes.NHANVIEN_FAILED:
-            return {
-              ...state,
-              isLoading: false,
-              errMess: action.payload,
-              staffs: [],
-            };
+    case ActionTypes.NHANVIEN_FAILED:
+      return {
+        ...state,
+        isLoading: false,
+        errMess: action.payload,
+        staffs: [],
+      };
 
-          default:
-            return state;
-        }
-}
+    default:
+      return state;
+  }
+};

@@ -28,7 +28,17 @@ function RenderBangLuong({ staff }) {
         </CardBody>
         <CardFooter className="lag m-2 bg-success px-3">
           <h5>
-            Lương: <mark>{salary.toLocaleString()}</mark> đồng
+            Lương:{" "}
+            <mark
+              style={{
+                boxShadow: "5px 5px 5px black",
+                cursor: "default",
+                borderRadius: 5,
+              }}
+            >
+              {salary.toLocaleString()}
+            </mark>{" "}
+            đồng
           </h5>
         </CardFooter>
       </Card>

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./StaffListComponent/css/App.css";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import Home from "./StaffListComponent/Home";

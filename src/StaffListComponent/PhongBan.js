@@ -13,7 +13,7 @@ function RenderDepart({ depart }) {
     <div className="col-12 col-sm-6 col-md-4 mt-3 mb-3 w3-animate-top">
       <Card>
         <Link to={`departments/${depart.id}`}>
-          <h3>{depart.name}</h3>
+          <h3 className="p-3">{depart.name}</h3>
         </Link>
         <CardBody>
           <CardText>

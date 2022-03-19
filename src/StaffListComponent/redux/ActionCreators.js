@@ -1,13 +1,13 @@
-import * as ActionTypes from './ActionTypes';
-import { baseUrl } from '../shared/baseUrl';
+import * as ActionTypes from "./ActionTypes";
+import { baseUrl } from "../shared/baseUrl";
 
 export const fetchNhanVien = () => (dispatch) => {
-    dispatch(NhanVienLoading(true));
+  dispatch(NhanVienLoading(true));
 
-    return fetch(baseUrl + "staffs")
-      .then((response) => response.json())
-      .then((staff) => dispatch(addNhanVien(staff)));
-}
+  return fetch(baseUrl + "staffs")
+    .then((response) => response.json())
+    .then((staff) => dispatch(addNhanVien(staff)));
+};
 
 export const NhanVienLoading = () => ({
   type: ActionTypes.NHANVIEN_LOADING,
@@ -53,8 +53,8 @@ export const fetchBangLuong = () => (dispatch) => {
     .then((luong) => dispatch(addBangLuong(luong)));
 };
 
-export const  BangLuongLoading = () => ({
-    type: ActionTypes.BANGLUONG_LOADING
+export const BangLuongLoading = () => ({
+  type: ActionTypes.BANGLUONG_LOADING,
 });
 
 export const BangLuongFailed = (errmess) => ({

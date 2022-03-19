@@ -38,7 +38,7 @@ class NhanVien extends Component {
       departmentId: data.department,
       annualLeave: data.annualLeave,
       overTime: data.overTime,
-      image: "/asset/images/alberto.png",
+      image: "/assets/images/alberto.png",
     };
 
     //tạo Id cho nhân viên mới thêm
@@ -67,7 +67,7 @@ class NhanVien extends Component {
         <Link to={`/staffs/${staff.id}`}>
           <CardImg src={staff.image} alt={staff.name} />
         </Link>
-        <h6 className="text-center p-1">{staff.name}</h6>
+        <h6 className="text-center m-1">{staff.name}</h6>
       </Card>
     );
   }
@@ -118,7 +118,7 @@ class NhanVien extends Component {
               <Search onSearch={this.onSearch} />
             </div>
           </div>
-          <hr/>
+          <hr />
           <div className="row">{NhanVien}</div>
         </div>
       );
